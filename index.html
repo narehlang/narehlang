@@ -877,8 +877,8 @@
       </div>
 
       <div class="cv-wrap">
-        <a class="cv-button" href="https://www.linkedin.com/in/narehlang/" target="_blank" rel="noopener">
-          <span data-lang-content="es">Ver LinkedIn</span><span data-lang-content="en">View LinkedIn</span>
+        <a class="cv-button" id="cv-download" href="Nareh_TranslationEN.pdf" download="Nareh_TranslationEN-pdf">
+          <span data-lang-content="es">Descargar CV</span><span data-lang-content="en">Download CV</span>
         </a>
       </div>
     </section>
@@ -1341,10 +1341,18 @@
   (function(){
     var root = document.querySelector('.app');
     var toggle = document.getElementById('lang-toggle');
+    var cvLink = document.getElementById('cv-download');
+    var cvFiles = {en:'Nareh_TranslationEN-pdf', es:'Nareh_TraduccionES.pdf'};
+    function syncCv(lang){
+      cvLink.setAttribute('href', cvFiles[lang]);
+      cvLink.setAttribute('download', cvFiles[lang]);
+    }
+    syncCv(root.getAttribute('data-lang') === 'es' ? 'es' : 'en');
     toggle.addEventListener('click', function(){
       var next = root.getAttribute('data-lang') === 'es' ? 'en' : 'es';
       root.setAttribute('data-lang', next);
       document.documentElement.setAttribute('lang', next);
+      syncCv(next);
     });
 
     var heroSvg = document.querySelector('.hero-svg');

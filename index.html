@@ -877,8 +877,8 @@
       </div>
 
       <div class="cv-wrap">
-        <a class="cv-button" id="cv-download" href="Nareh_TranslationEN.pdf" download="Nareh_TranslationEN-pdf">
-          <span data-lang-content="es">Descargar CV</span><span data-lang-content="en">Download CV</span>
+        <a class="cv-button" id="cv-download" href="Nareh_TranslationEN.pdf" target="_blank" rel="noopener">
+          <span data-lang-content="es">Ver CV Traducción</span><span data-lang-content="en">View Translation CV</span>
         </a>
       </div>
     </section>
@@ -1345,7 +1345,6 @@
     var cvFiles = {en:'Nareh_TranslationEN-pdf', es:'Nareh_TraduccionES.pdf'};
     function syncCv(lang){
       cvLink.setAttribute('href', cvFiles[lang]);
-      cvLink.setAttribute('download', cvFiles[lang]);
     }
     syncCv(root.getAttribute('data-lang') === 'es' ? 'es' : 'en');
     toggle.addEventListener('click', function(){
